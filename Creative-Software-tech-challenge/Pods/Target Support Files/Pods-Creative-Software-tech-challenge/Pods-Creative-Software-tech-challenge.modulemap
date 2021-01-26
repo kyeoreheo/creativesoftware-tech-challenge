@@ -1,0 +1,6 @@
+module Pods_Creative_Software_tech_challenge {
+  umbrella header "Pods-Creative-Software-tech-challenge-umbrella.h"
+
+  export *
+  module * { export * }
+}
