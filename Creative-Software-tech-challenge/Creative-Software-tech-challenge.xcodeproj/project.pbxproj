@@ -10,7 +10,6 @@
 		311202E825C0B9CE00D679D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311202E725C0B9CE00D679D4 /* AppDelegate.swift */; };
 		311202EA25C0B9CE00D679D4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311202E925C0B9CE00D679D4 /* SceneDelegate.swift */; };
 		311202EC25C0B9CE00D679D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311202EB25C0B9CE00D679D4 /* ViewController.swift */; };
-		311202EF25C0B9CE00D679D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 311202ED25C0B9CE00D679D4 /* Main.storyboard */; };
 		311202F125C0B9D900D679D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 311202F025C0B9D900D679D4 /* Assets.xcassets */; };
 		311202F425C0B9D900D679D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 311202F225C0B9D900D679D4 /* LaunchScreen.storyboard */; };
 		311202FF25C0B9DA00D679D4 /* Creative_Software_tech_challengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311202FE25C0B9DA00D679D4 /* Creative_Software_tech_challengeTests.swift */; };
@@ -39,7 +38,6 @@
 		311202E725C0B9CE00D679D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		311202E925C0B9CE00D679D4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		311202EB25C0B9CE00D679D4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		311202EE25C0B9CE00D679D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		311202F025C0B9D900D679D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		311202F325C0B9D900D679D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		311202F525C0B9D900D679D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,13 +97,12 @@
 		311202E625C0B9CE00D679D4 /* Creative-Software-tech-challenge */ = {
 			isa = PBXGroup;
 			children = (
-				311202E725C0B9CE00D679D4 /* AppDelegate.swift */,
-				311202E925C0B9CE00D679D4 /* SceneDelegate.swift */,
-				311202EB25C0B9CE00D679D4 /* ViewController.swift */,
-				311202ED25C0B9CE00D679D4 /* Main.storyboard */,
-				311202F025C0B9D900D679D4 /* Assets.xcassets */,
-				311202F225C0B9D900D679D4 /* LaunchScreen.storyboard */,
-				311202F525C0B9D900D679D4 /* Info.plist */,
+				3112032025C0BAC800D679D4 /* Application */,
+				3112031F25C0BAB900D679D4 /* Extension */,
+				3112031E25C0BA7C00D679D4 /* Controller */,
+				3112031D25C0BA7800D679D4 /* ViewModel */,
+				3112031C25C0BA7600D679D4 /* View */,
+				3112031B25C0BA7300D679D4 /* Model */,
 			);
 			path = "Creative-Software-tech-challenge";
 			sourceTree = "<group>";
@@ -126,6 +123,54 @@
 				3112030B25C0B9DA00D679D4 /* Info.plist */,
 			);
 			path = "Creative-Software-tech-challengeUITests";
+			sourceTree = "<group>";
+		};
+		3112031B25C0BA7300D679D4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3112031C25C0BA7600D679D4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3112031D25C0BA7800D679D4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3112031E25C0BA7C00D679D4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				311202EB25C0B9CE00D679D4 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3112031F25C0BAB900D679D4 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		3112032025C0BAC800D679D4 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				311202E725C0B9CE00D679D4 /* AppDelegate.swift */,
+				311202E925C0B9CE00D679D4 /* SceneDelegate.swift */,
+				311202F025C0B9D900D679D4 /* Assets.xcassets */,
+				311202F225C0B9D900D679D4 /* LaunchScreen.storyboard */,
+				311202F525C0B9D900D679D4 /* Info.plist */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +278,6 @@
 			files = (
 				311202F425C0B9D900D679D4 /* LaunchScreen.storyboard in Resources */,
 				311202F125C0B9D900D679D4 /* Assets.xcassets in Resources */,
-				311202EF25C0B9CE00D679D4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +340,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		311202ED25C0B9CE00D679D4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				311202EE25C0B9CE00D679D4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		311202F225C0B9D900D679D4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -438,7 +474,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YDBB8774WP;
-				INFOPLIST_FILE = "Creative-Software-tech-challenge/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Creative-Software-tech-challenge/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -446,7 +482,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kyoheo.Creative-Software-tech-challenge";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -457,7 +493,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YDBB8774WP;
-				INFOPLIST_FILE = "Creative-Software-tech-challenge/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Creative-Software-tech-challenge/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -465,7 +501,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kyoheo.Creative-Software-tech-challenge";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
