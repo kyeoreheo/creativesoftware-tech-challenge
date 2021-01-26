@@ -15,6 +15,12 @@
 		311202FF25C0B9DA00D679D4 /* Creative_Software_tech_challengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311202FE25C0B9DA00D679D4 /* Creative_Software_tech_challengeTests.swift */; };
 		3112030A25C0B9DA00D679D4 /* Creative_Software_tech_challengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3112030925C0B9DA00D679D4 /* Creative_Software_tech_challengeUITests.swift */; };
 		3112033325C0BEE400D679D4 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3112033225C0BEE400D679D4 /* Project.swift */; };
+		3112034025C0BFE700D679D4 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3112033F25C0BFE700D679D4 /* CustomView.swift */; };
+		3112034525C0C02500D679D4 /* CreateProjectVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3112034425C0C02500D679D4 /* CreateProjectVM.swift */; };
+		3112034A25C0C12400D679D4 /* CreateProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3112034925C0C12400D679D4 /* CreateProjectCell.swift */; };
+		3112035725C0C3F300D679D4 /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3112035525C0C3F200D679D4 /* NotoSansCJKkr-Bold.otf */; };
+		3112035825C0C3F300D679D4 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3112035625C0C3F300D679D4 /* NotoSansCJKkr-Regular.otf */; };
+		3112035D25C0C43600D679D4 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3112035C25C0C43600D679D4 /* UIFont+.swift */; };
 		B3A6E96CB85C784F56524378 /* libPods-Creative-Software-tech-challenge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C69034FB2A70F2B93A2B7A77 /* libPods-Creative-Software-tech-challenge.a */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +57,12 @@
 		3112030925C0B9DA00D679D4 /* Creative_Software_tech_challengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creative_Software_tech_challengeUITests.swift; sourceTree = "<group>"; };
 		3112030B25C0B9DA00D679D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3112033225C0BEE400D679D4 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		3112033F25C0BFE700D679D4 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		3112034425C0C02500D679D4 /* CreateProjectVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProjectVM.swift; sourceTree = "<group>"; };
+		3112034925C0C12400D679D4 /* CreateProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProjectCell.swift; sourceTree = "<group>"; };
+		3112035525C0C3F200D679D4 /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
+		3112035625C0C3F300D679D4 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
+		3112035C25C0C43600D679D4 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		C69034FB2A70F2B93A2B7A77 /* libPods-Creative-Software-tech-challenge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Creative-Software-tech-challenge.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0F7290155A87BC70205EA46 /* Pods-Creative-Software-tech-challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Creative-Software-tech-challenge.release.xcconfig"; path = "Target Support Files/Pods-Creative-Software-tech-challenge/Pods-Creative-Software-tech-challenge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,6 +157,7 @@
 		3112031C25C0BA7600D679D4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3112034925C0C12400D679D4 /* CreateProjectCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -152,6 +165,7 @@
 		3112031D25C0BA7800D679D4 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				3112034425C0C02500D679D4 /* CreateProjectVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -167,6 +181,8 @@
 		3112031F25C0BAB900D679D4 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				3112033F25C0BFE700D679D4 /* CustomView.swift */,
+				3112035C25C0C43600D679D4 /* UIFont+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -174,6 +190,7 @@
 		3112032025C0BAC800D679D4 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				3112035425C0C3CC00D679D4 /* Fonts */,
 				311202E725C0B9CE00D679D4 /* AppDelegate.swift */,
 				311202E925C0B9CE00D679D4 /* SceneDelegate.swift */,
 				311202F025C0B9D900D679D4 /* Assets.xcassets */,
@@ -181,6 +198,15 @@
 				311202F525C0B9D900D679D4 /* Info.plist */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		3112035425C0C3CC00D679D4 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				3112035525C0C3F200D679D4 /* NotoSansCJKkr-Bold.otf */,
+				3112035625C0C3F300D679D4 /* NotoSansCJKkr-Regular.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		8CA175F1ADDCCC547E0B5D3B /* Frameworks */ = {
@@ -305,7 +331,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				311202F425C0B9D900D679D4 /* LaunchScreen.storyboard in Resources */,
+				3112035825C0C3F300D679D4 /* NotoSansCJKkr-Regular.otf in Resources */,
 				311202F125C0B9D900D679D4 /* Assets.xcassets in Resources */,
+				3112035725C0C3F300D679D4 /* NotoSansCJKkr-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,7 +383,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3112035D25C0C43600D679D4 /* UIFont+.swift in Sources */,
+				3112034025C0BFE700D679D4 /* CustomView.swift in Sources */,
 				311202EC25C0B9CE00D679D4 /* ViewController.swift in Sources */,
+				3112034A25C0C12400D679D4 /* CreateProjectCell.swift in Sources */,
+				3112034525C0C02500D679D4 /* CreateProjectVM.swift in Sources */,
 				311202E825C0B9CE00D679D4 /* AppDelegate.swift in Sources */,
 				311202EA25C0B9CE00D679D4 /* SceneDelegate.swift in Sources */,
 				3112033325C0BEE400D679D4 /* Project.swift in Sources */,
