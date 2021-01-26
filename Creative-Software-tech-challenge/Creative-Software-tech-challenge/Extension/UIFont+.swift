@@ -8,13 +8,13 @@
 import UIKit
 
 extension UIFont {
-    func notoReg(size: CGFloat) -> UIFont {
+    static notoReg(size: CGFloat) -> UIFont {
         guard let font =  UIFont(name: "NotoSansCJKkr-Regular", size: size)
         else { return UIFont.systemFont(ofSize: size) }
         return font
     }
     
-    func notoBold(size: CGFloat) -> UIFont {
+    static func notoBold(size: CGFloat) -> UIFont {
         guard let font = UIFont(name: "NotoSansCJKkr-Bold", size: size)
         else { return UIFont.boldSystemFont(ofSize: size)}
         return font

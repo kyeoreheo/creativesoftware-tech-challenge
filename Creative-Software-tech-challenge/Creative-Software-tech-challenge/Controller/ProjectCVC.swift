@@ -1,12 +1,12 @@
 //
-//  CustomView.swift
+//  ProjectCVC.swift
 //  Creative-Software-tech-challenge
 //
 //  Created by Kyo on 1/26/21.
 //
 
-import Foundation
+import UIKit
 
-class CustomView {
+class ProjectCVC: UICollectionViewController {
     
 }
