@@ -14,6 +14,8 @@
 		311202F425C0B9D900D679D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 311202F225C0B9D900D679D4 /* LaunchScreen.storyboard */; };
 		311202FF25C0B9DA00D679D4 /* Creative_Software_tech_challengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311202FE25C0B9DA00D679D4 /* Creative_Software_tech_challengeTests.swift */; };
 		3112030A25C0B9DA00D679D4 /* Creative_Software_tech_challengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3112030925C0B9DA00D679D4 /* Creative_Software_tech_challengeUITests.swift */; };
+		3112033325C0BEE400D679D4 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3112033225C0BEE400D679D4 /* Project.swift */; };
+		B3A6E96CB85C784F56524378 /* libPods-Creative-Software-tech-challenge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C69034FB2A70F2B93A2B7A77 /* libPods-Creative-Software-tech-challenge.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		198AB7947FE1C8A1183C218E /* Pods-Creative-Software-tech-challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Creative-Software-tech-challenge.debug.xcconfig"; path = "Target Support Files/Pods-Creative-Software-tech-challenge/Pods-Creative-Software-tech-challenge.debug.xcconfig"; sourceTree = "<group>"; };
 		311202E425C0B9CE00D679D4 /* Creative-Software-tech-challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Creative-Software-tech-challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		311202E725C0B9CE00D679D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		311202E925C0B9CE00D679D4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +50,9 @@
 		3112030525C0B9DA00D679D4 /* Creative-Software-tech-challengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Creative-Software-tech-challengeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3112030925C0B9DA00D679D4 /* Creative_Software_tech_challengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creative_Software_tech_challengeUITests.swift; sourceTree = "<group>"; };
 		3112030B25C0B9DA00D679D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3112033225C0BEE400D679D4 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		C69034FB2A70F2B93A2B7A77 /* libPods-Creative-Software-tech-challenge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Creative-Software-tech-challenge.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0F7290155A87BC70205EA46 /* Pods-Creative-Software-tech-challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Creative-Software-tech-challenge.release.xcconfig"; path = "Target Support Files/Pods-Creative-Software-tech-challenge/Pods-Creative-Software-tech-challenge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3A6E96CB85C784F56524378 /* libPods-Creative-Software-tech-challenge.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +88,8 @@
 				311202FD25C0B9DA00D679D4 /* Creative-Software-tech-challengeTests */,
 				3112030825C0B9DA00D679D4 /* Creative-Software-tech-challengeUITests */,
 				311202E525C0B9CE00D679D4 /* Products */,
+				96A6381B817B6CA9495DC44B /* Pods */,
+				8CA175F1ADDCCC547E0B5D3B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,11 +107,11 @@
 			isa = PBXGroup;
 			children = (
 				3112032025C0BAC800D679D4 /* Application */,
+				3112031B25C0BA7300D679D4 /* Model */,
 				3112031F25C0BAB900D679D4 /* Extension */,
 				3112031E25C0BA7C00D679D4 /* Controller */,
 				3112031D25C0BA7800D679D4 /* ViewModel */,
 				3112031C25C0BA7600D679D4 /* View */,
-				3112031B25C0BA7300D679D4 /* Model */,
 			);
 			path = "Creative-Software-tech-challenge";
 			sourceTree = "<group>";
@@ -128,6 +137,7 @@
 		3112031B25C0BA7300D679D4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3112033225C0BEE400D679D4 /* Project.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -173,6 +183,23 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		8CA175F1ADDCCC547E0B5D3B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C69034FB2A70F2B93A2B7A77 /* libPods-Creative-Software-tech-challenge.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		96A6381B817B6CA9495DC44B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				198AB7947FE1C8A1183C218E /* Pods-Creative-Software-tech-challenge.debug.xcconfig */,
+				F0F7290155A87BC70205EA46 /* Pods-Creative-Software-tech-challenge.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -180,6 +207,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3112030E25C0B9DA00D679D4 /* Build configuration list for PBXNativeTarget "Creative-Software-tech-challenge" */;
 			buildPhases = (
+				082A16034741CBB49799A564 /* [CP] Check Pods Manifest.lock */,
 				311202E025C0B9CE00D679D4 /* Sources */,
 				311202E125C0B9CE00D679D4 /* Frameworks */,
 				311202E225C0B9CE00D679D4 /* Resources */,
@@ -297,6 +325,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		082A16034741CBB49799A564 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Creative-Software-tech-challenge-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		311202E025C0B9CE00D679D4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -305,6 +358,7 @@
 				311202EC25C0B9CE00D679D4 /* ViewController.swift in Sources */,
 				311202E825C0B9CE00D679D4 /* AppDelegate.swift in Sources */,
 				311202EA25C0B9CE00D679D4 /* SceneDelegate.swift in Sources */,
+				3112033325C0BEE400D679D4 /* Project.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +523,7 @@
 		};
 		3112030F25C0B9DA00D679D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 198AB7947FE1C8A1183C218E /* Pods-Creative-Software-tech-challenge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -488,6 +543,7 @@
 		};
 		3112031025C0B9DA00D679D4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0F7290155A87BC70205EA46 /* Pods-Creative-Software-tech-challenge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
