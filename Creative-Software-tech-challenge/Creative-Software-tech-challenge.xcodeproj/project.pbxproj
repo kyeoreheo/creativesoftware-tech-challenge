@@ -129,6 +129,7 @@
 				3112032025C0BAC800D679D4 /* Application */,
 				3112031B25C0BA7300D679D4 /* Model */,
 				3112031F25C0BAB900D679D4 /* Extension */,
+				3112039B25C0D79A00D679D4 /* SplashView */,
 				3112031E25C0BA7C00D679D4 /* Controller */,
 				3112031D25C0BA7800D679D4 /* ViewModel */,
 				3112031C25C0BA7600D679D4 /* View */,
@@ -181,7 +182,6 @@
 		3112031E25C0BA7C00D679D4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3112037D25C0D75500D679D4 /* SplashVC.swift */,
 				311202EB25C0B9CE00D679D4 /* MainVC.swift */,
 				3112036A25C0C53200D679D4 /* ProjectCVC.swift */,
 			);
@@ -219,6 +219,14 @@
 				3112035625C0C3F300D679D4 /* NotoSansCJKkr-Regular.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		3112039B25C0D79A00D679D4 /* SplashView */ = {
+			isa = PBXGroup;
+			children = (
+				3112037D25C0D75500D679D4 /* SplashVC.swift */,
+			);
+			path = SplashView;
 			sourceTree = "<group>";
 		};
 		8CA175F1ADDCCC547E0B5D3B /* Frameworks */ = {

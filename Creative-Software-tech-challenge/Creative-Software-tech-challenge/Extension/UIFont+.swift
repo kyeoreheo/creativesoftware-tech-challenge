@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIFont {
-    static notoReg(size: CGFloat) -> UIFont {
+    static func notoReg(size: CGFloat) -> UIFont {
         guard let font =  UIFont(name: "NotoSansCJKkr-Regular", size: size)
         else { return UIFont.systemFont(ofSize: size) }
         return font

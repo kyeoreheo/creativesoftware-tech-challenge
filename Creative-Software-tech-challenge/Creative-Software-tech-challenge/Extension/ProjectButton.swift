@@ -15,6 +15,7 @@ class ProjectButton: UIButton {
         backgroundColor = .blue
         titleLabel?.textColor = .white
         titleLabel?.font = .notoBold(size: 20)
+        layer.cornerRadius = 10
     }
     
     required init?(coder: NSCoder) {
