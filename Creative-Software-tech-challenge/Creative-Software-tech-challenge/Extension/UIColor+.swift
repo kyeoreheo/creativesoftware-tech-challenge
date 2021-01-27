@@ -9,7 +9,7 @@ import UIKit
 
 extension UIColor {
     ///navigation title
-    static let black = UIColor(hexString: "#2E2E2E")
+    static let black1 = UIColor(hexString: "#2E2E2E")
     ///sub-component title
     static let black2 = UIColor(hexString: "#1F1F1F")
 

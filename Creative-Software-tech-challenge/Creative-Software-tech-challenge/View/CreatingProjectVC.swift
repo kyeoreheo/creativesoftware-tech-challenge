@@ -9,22 +9,21 @@ import UIKit
 
 class CreatProjectVC: UIViewController {
     // MARK:- Properties
-    private let project: Project?
+    private let project: Project
     private let imagePicker = UIImagePickerController()
     
     // MARK:- View components
     private let stackView = UIStackView()
-    private let imageView = UIImageView()
+    private lazy var imageView = ImagePicker(project: project)
     private let dateButton = CustomView().dateButton()
     private let titleTextField = CustomView().inputTextField(title: "Title", type: .title)
     private let descriptionTextField = CustomView().inputTextField(title: "Description", type: .description)
     private let emptyView = UIView()
 
 //    private let 
-
 //    weak var delegate: ?
     
-    init(project: Project?) {
+    init(project: Project) {
         self.project = project
         super.init(nibName: nil, bundle: nil)
     }
@@ -58,6 +57,10 @@ class CreatProjectVC: UIViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
         }
         
+        stackView.addArrangedSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            make.height.equalTo(163 * ratio)
+        }
         
         stackView.addArrangedSubview(dateButton)
         dateButton.snp.makeConstraints { make in

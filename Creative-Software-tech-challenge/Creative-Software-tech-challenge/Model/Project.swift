@@ -12,5 +12,7 @@ struct Project {
     let date: Date
     let description: String
     let thumbNail: UIImage?
+    let color: UIColor?
     let isOnCreationFlow: Bool
+    let posibleColors: [UIColor] = [.picker1, .picker2, .picker3, .picker4, .picker5, .picker6]
 }

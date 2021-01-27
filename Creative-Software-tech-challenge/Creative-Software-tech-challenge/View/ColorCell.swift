@@ -9,9 +9,25 @@ import UIKit
 
 class ColorCell: UICollectionViewCell {
 //    public let color: UIColor?
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
+    }
+    override func prepareForReuse() {
+        isSelected(false)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     public func setCircle(color: UIColor, size: CGFloat) {
         layer.cornerRadius = size / 2
         backgroundColor = color
+    }
+    
+    public func isSelected(_ isSelected: Bool = false) {
+        layer.borderWidth = 1
+        layer.borderColor = isSelected ? UIColor.black.cgColor : UIColor.clear.cgColor
     }
 }
 

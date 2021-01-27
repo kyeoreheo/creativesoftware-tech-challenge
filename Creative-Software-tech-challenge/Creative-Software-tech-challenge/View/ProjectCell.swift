@@ -12,7 +12,7 @@ class ProjectCell: UICollectionViewCell {
     private let createButton = UIImageView()
     
     // MARK:- Properties
-    weak var delegate: CreateProjectTableCellDelegate?
+//    weak var delegate: CreateProjectTableCellDelegate?
 
     // MARK:- Lifecycles
     override init(frame: CGRect) {

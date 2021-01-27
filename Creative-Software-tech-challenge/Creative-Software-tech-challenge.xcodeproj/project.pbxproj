@@ -27,7 +27,6 @@
 		3112037E25C0D75500D679D4 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3112037D25C0D75500D679D4 /* SplashVC.swift */; };
 		311203AE25C0E22200D679D4 /* Projcets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311203AD25C0E22200D679D4 /* Projcets.swift */; };
 		311203BD25C0E3AE00D679D4 /* CreatingProjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311203BC25C0E3AE00D679D4 /* CreatingProjectVC.swift */; };
-		311203C225C0E59D00D679D4 /* CreatProjectTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311203C125C0E59D00D679D4 /* CreatProjectTableCell.swift */; };
 		311203C725C0E6F800D679D4 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311203C625C0E6F800D679D4 /* UIViewController+.swift */; };
 		311203CC25C0E90300D679D4 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311203CB25C0E90300D679D4 /* CustomView.swift */; };
 		311203D125C0E97800D679D4 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311203D025C0E97800D679D4 /* UITextField+.swift */; };
@@ -82,7 +81,6 @@
 		3112037D25C0D75500D679D4 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		311203AD25C0E22200D679D4 /* Projcets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projcets.swift; sourceTree = "<group>"; };
 		311203BC25C0E3AE00D679D4 /* CreatingProjectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatingProjectVC.swift; sourceTree = "<group>"; };
-		311203C125C0E59D00D679D4 /* CreatProjectTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatProjectTableCell.swift; sourceTree = "<group>"; };
 		311203C625C0E6F800D679D4 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		311203CB25C0E90300D679D4 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		311203D025C0E97800D679D4 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
@@ -187,9 +185,7 @@
 			children = (
 				3112034925C0C12400D679D4 /* ProjectCell.swift */,
 				311203BC25C0E3AE00D679D4 /* CreatingProjectVC.swift */,
-				311203C125C0E59D00D679D4 /* CreatProjectTableCell.swift */,
 				311203D525C0F54F00D679D4 /* ImagePicker.swift */,
-				311203DA25C0F5B000D679D4 /* ColorPickerCVC.swift */,
 				311203DF25C0F5B800D679D4 /* ColorCell.swift */,
 			);
 			path = View;
@@ -208,6 +204,7 @@
 			children = (
 				311202EB25C0B9CE00D679D4 /* MainVC.swift */,
 				3112036A25C0C53200D679D4 /* ProjectCVC.swift */,
+				311203DA25C0F5B000D679D4 /* ColorPickerCVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -448,7 +445,6 @@
 				3112037E25C0D75500D679D4 /* SplashVC.swift in Sources */,
 				311203D625C0F54F00D679D4 /* ImagePicker.swift in Sources */,
 				3112034525C0C02500D679D4 /* ProjectVM.swift in Sources */,
-				311203C225C0E59D00D679D4 /* CreatProjectTableCell.swift in Sources */,
 				311203CC25C0E90300D679D4 /* CustomView.swift in Sources */,
 				3112037925C0D74700D679D4 /* Global.swift in Sources */,
 				311203C725C0E6F800D679D4 /* UIViewController+.swift in Sources */,

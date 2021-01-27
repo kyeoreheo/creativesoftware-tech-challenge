@@ -34,7 +34,7 @@ class MainVC: UIViewController {
 
         view.addSubview(titleLabel)
         titleLabel.text = "Projects"
-        titleLabel.textColor = .black
+        titleLabel.textColor = .black1
         titleLabel.textAlignment = .center
         titleLabel.font = .notoBold(size: 24 * ratio)
         titleLabel.snp.makeConstraints { make in
@@ -56,7 +56,7 @@ class MainVC: UIViewController {
 extension MainVC: ProjectCVCDelegate {
     func cellTapped(index: Int) {
         print("DEBUG:- tapped \(index)")
-        pushVC(CreatProjectVC(project: nil))
+        pushVC(CreatProjectVC(project: Project(title: "-", date: Date(), description: "-", thumbNail: UIImage(named: "placeholder"), color: .blue, isOnCreationFlow: true)))
     }
     
 }
