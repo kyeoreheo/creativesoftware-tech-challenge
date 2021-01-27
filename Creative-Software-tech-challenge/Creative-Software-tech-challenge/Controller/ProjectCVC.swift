@@ -39,7 +39,6 @@ class ProjectCVC: UICollectionViewController {
         collectionView.backgroundColor = .clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsVerticalScrollIndicator = false
-//        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
         collectionView.register(ProjectCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
 }

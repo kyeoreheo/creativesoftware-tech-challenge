@@ -51,6 +51,12 @@ class CreatProjectVC: UIViewController {
     private func configure() {
         imagePickerController.delegate = self
         imagePicker.delegate = self
+        if project == nil {
+            //firstsStart
+            project = Project()
+        } else {
+            
+        }
     }
     
     private func configureUI() {
@@ -104,9 +110,19 @@ class CreatProjectVC: UIViewController {
     }
     
     @objc func handleSaveButton() {
+        guard let titleTextView = titleTextView.viewWithTag(1) as? UITextView,
+              let descriptionTextView = descriptionTextView.viewWithTag(1) as? UITextView
+        else { return }
+        if titleTextView.text != "" && titleTextView.text != "Type here" {
+            project?.title = titleTextView.text
+        }
+        
+        if descriptionTextView.text != "" && descriptionTextView.text != "Type here" {
+            project?.description = descriptionTextView.text
+        }
         delegate?.updateProject(project: project)
+        popVC()
     }
-
 }
 
 //extension CreatProjectVC: CreatProjectVCDelegate {
