@@ -9,10 +9,11 @@ import UIKit
 
 class ProjectCell: UICollectionViewCell {
     // MARK:- View components
+    public var viewModel: ProjectVM?
     private let createButton = UIImageView()
     
     // MARK:- Properties
-//    weak var delegate: ProductCellDelegate?
+//    weak var delegate: CreateProjectTableCellDelegate?
 
     // MARK:- Lifecycles
     override init(frame: CGRect) {
@@ -36,7 +37,7 @@ class ProjectCell: UICollectionViewCell {
         backgroundColor = .white
 
         addSubview(createButton)
-        createButton.image = UIImage(named: "PlusCircle")
+        createButton.image = UIImage(named: "plusCircle")
         createButton.snp.makeConstraints { make in
             make.width.height.equalTo(60 * ratio)
             make.center.equalToSuperview()
@@ -44,7 +45,6 @@ class ProjectCell: UICollectionViewCell {
     }
     
     // MARK:- Helpers
-    
     
     // MARK:- Selectors
     

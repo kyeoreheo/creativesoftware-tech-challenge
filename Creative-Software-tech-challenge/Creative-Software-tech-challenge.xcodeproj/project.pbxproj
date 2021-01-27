@@ -26,6 +26,13 @@
 		3112037925C0D74700D679D4 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3112037825C0D74700D679D4 /* Global.swift */; };
 		3112037E25C0D75500D679D4 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3112037D25C0D75500D679D4 /* SplashVC.swift */; };
 		311203AE25C0E22200D679D4 /* Projcets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311203AD25C0E22200D679D4 /* Projcets.swift */; };
+		311203BD25C0E3AE00D679D4 /* CreatingProjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311203BC25C0E3AE00D679D4 /* CreatingProjectVC.swift */; };
+		311203C725C0E6F800D679D4 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311203C625C0E6F800D679D4 /* UIViewController+.swift */; };
+		311203CC25C0E90300D679D4 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311203CB25C0E90300D679D4 /* CustomView.swift */; };
+		311203D125C0E97800D679D4 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311203D025C0E97800D679D4 /* UITextField+.swift */; };
+		311203D625C0F54F00D679D4 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311203D525C0F54F00D679D4 /* ImagePicker.swift */; };
+		311203DB25C0F5B000D679D4 /* ColorPickerCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311203DA25C0F5B000D679D4 /* ColorPickerCVC.swift */; };
+		311203E025C0F5B800D679D4 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311203DF25C0F5B800D679D4 /* ColorCell.swift */; };
 		B3A6E96CB85C784F56524378 /* libPods-Creative-Software-tech-challenge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C69034FB2A70F2B93A2B7A77 /* libPods-Creative-Software-tech-challenge.a */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +80,13 @@
 		3112037825C0D74700D679D4 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		3112037D25C0D75500D679D4 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		311203AD25C0E22200D679D4 /* Projcets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projcets.swift; sourceTree = "<group>"; };
+		311203BC25C0E3AE00D679D4 /* CreatingProjectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatingProjectVC.swift; sourceTree = "<group>"; };
+		311203C625C0E6F800D679D4 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		311203CB25C0E90300D679D4 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		311203D025C0E97800D679D4 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		311203D525C0F54F00D679D4 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		311203DA25C0F5B000D679D4 /* ColorPickerCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerCVC.swift; sourceTree = "<group>"; };
+		311203DF25C0F5B800D679D4 /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		C69034FB2A70F2B93A2B7A77 /* libPods-Creative-Software-tech-challenge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Creative-Software-tech-challenge.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0F7290155A87BC70205EA46 /* Pods-Creative-Software-tech-challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Creative-Software-tech-challenge.release.xcconfig"; path = "Target Support Files/Pods-Creative-Software-tech-challenge/Pods-Creative-Software-tech-challenge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,6 +184,8 @@
 			isa = PBXGroup;
 			children = (
 				3112034925C0C12400D679D4 /* ProjectCell.swift */,
+				311203D525C0F54F00D679D4 /* ImagePicker.swift */,
+				311203DF25C0F5B800D679D4 /* ColorCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -187,6 +203,8 @@
 			children = (
 				311202EB25C0B9CE00D679D4 /* MainVC.swift */,
 				3112036A25C0C53200D679D4 /* ProjectCVC.swift */,
+				311203BC25C0E3AE00D679D4 /* CreatingProjectVC.swift */,
+				311203DA25C0F5B000D679D4 /* ColorPickerCVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -198,6 +216,9 @@
 				3112035C25C0C43600D679D4 /* UIFont+.swift */,
 				3112037325C0D67300D679D4 /* UIColor+.swift */,
 				3112037825C0D74700D679D4 /* Global.swift */,
+				311203C625C0E6F800D679D4 /* UIViewController+.swift */,
+				311203CB25C0E90300D679D4 /* CustomView.swift */,
+				311203D025C0E97800D679D4 /* UITextField+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -416,15 +437,22 @@
 			files = (
 				3112036B25C0C53200D679D4 /* ProjectCVC.swift in Sources */,
 				3112035D25C0C43600D679D4 /* UIFont+.swift in Sources */,
+				311203E025C0F5B800D679D4 /* ColorCell.swift in Sources */,
 				3112034025C0BFE700D679D4 /* ProjectButton.swift in Sources */,
+				311203BD25C0E3AE00D679D4 /* CreatingProjectVC.swift in Sources */,
 				311202EC25C0B9CE00D679D4 /* MainVC.swift in Sources */,
 				3112034A25C0C12400D679D4 /* ProjectCell.swift in Sources */,
 				3112037E25C0D75500D679D4 /* SplashVC.swift in Sources */,
+				311203D625C0F54F00D679D4 /* ImagePicker.swift in Sources */,
 				3112034525C0C02500D679D4 /* ProjectVM.swift in Sources */,
+				311203CC25C0E90300D679D4 /* CustomView.swift in Sources */,
 				3112037925C0D74700D679D4 /* Global.swift in Sources */,
+				311203C725C0E6F800D679D4 /* UIViewController+.swift in Sources */,
 				311202E825C0B9CE00D679D4 /* AppDelegate.swift in Sources */,
 				311202EA25C0B9CE00D679D4 /* SceneDelegate.swift in Sources */,
 				3112033325C0BEE400D679D4 /* Project.swift in Sources */,
+				311203DB25C0F5B000D679D4 /* ColorPickerCVC.swift in Sources */,
+				311203D125C0E97800D679D4 /* UITextField+.swift in Sources */,
 				3112037425C0D67300D679D4 /* UIColor+.swift in Sources */,
 				311203AE25C0E22200D679D4 /* Projcets.swift in Sources */,
 			);

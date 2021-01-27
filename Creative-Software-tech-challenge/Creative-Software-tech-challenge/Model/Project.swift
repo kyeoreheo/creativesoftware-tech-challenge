@@ -12,5 +12,6 @@ struct Project {
     let date: Date
     let description: String
     let thumbNail: UIImage?
+    let color: UIColor?
     let isOnCreationFlow: Bool
 }

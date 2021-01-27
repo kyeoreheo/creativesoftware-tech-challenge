@@ -8,8 +8,20 @@
 import UIKit
 
 extension UIColor {
+    ///navigation title
+    static let black1 = UIColor(hexString: "#2E2E2E")
+    ///sub-component title
+    static let black2 = UIColor(hexString: "#1F1F1F")
+
+    ///background color
     static let gray = UIColor(hexString: "#F9FAFF")
+    ///border width
     static let gray2 = UIColor(hexString: "#E2E2E2")
+    ///textField placeholdeer
+    static let gray3 = UIColor(hexString: "#AFAFAF")
+    ///guideLabel
+    static let gray4 = UIColor(hexString: "#CECECE")
+    
     static let orange = UIColor(hexString: "#EE9A4D")
     static let blue = UIColor(hexString: "#4B6CDD")
 
