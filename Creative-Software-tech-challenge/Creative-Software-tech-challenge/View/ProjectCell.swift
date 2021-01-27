@@ -36,7 +36,7 @@ class ProjectCell: UICollectionViewCell {
         backgroundColor = .white
 
         addSubview(createButton)
-        createButton.image = UIImage(named: "PlusCircle")
+        createButton.image = UIImage(named: "plusCircle")
         createButton.snp.makeConstraints { make in
             make.width.height.equalTo(60 * ratio)
             make.center.equalToSuperview()

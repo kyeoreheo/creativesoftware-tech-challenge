@@ -7,14 +7,27 @@
 
 import UIKit
 
+enum TextFieldType {
+    case title
+    case description
+}
+
 class CustomView {
     public func dateButton() -> UIButton {
         let button = UIButton()
-        button.setTitle("Add date & time", for: <#T##UIControl.State#>)
+        button.setTitle("Add date & time", for: .normal)
+        button.setTitleColor(.orange, for: .normal)
+        button.titleLabel?.font = .notoBold(size: 14 * ratio)
+        button.imageView?.contentMode = .scaleAspectFill
+        button.setImage(UIImage(named: "calendar"), for: .normal)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
+        button.layer.cornerRadius = 10
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.gray2.cgColor
         return button
     }
     
-    public func inputTextField(title: String) -> UIView {
+    public func inputTextField(title: String, type: TextFieldType) -> UIView {
         let view = UIView()
         let titleLabel = UILabel()
         let textField = UITextField()
@@ -26,6 +39,8 @@ class CustomView {
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.left.equalToSuperview()
+            make.right.equalToSuperview()
+            make.height.equalTo(24 * ratio)
         }
         
         view.addSubview(textField)
@@ -38,7 +53,7 @@ class CustomView {
         textField.layer.borderColor = UIColor.gray2.cgColor
         textField.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(4)
-            make.height.equalTo(38 * ratio)
+            make.height.equalTo(type == .title ? 38 * ratio : 57 * ratio)
             make.left.equalToSuperview()
             make.right.equalToSuperview()
             make.bottom.equalToSuperview()
