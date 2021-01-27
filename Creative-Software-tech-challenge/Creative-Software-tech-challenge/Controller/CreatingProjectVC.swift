@@ -7,25 +7,32 @@
 
 import UIKit
 
+protocol CreatProjectVCDelegate: class {
+    func updateProject(project: Project?)
+}
+
 class CreatProjectVC: UIViewController {
     // MARK:- Properties
     private let viewModel: ProjectVM
-    private let imagePicker = UIImagePickerController()
+    private var project: Project?
+    private let imagePickerController = UIImagePickerController()
     
     // MARK:- View components
     private lazy var navBar = CustomView().navBar(title: "Create Project", action: #selector(handleBack), target: self)
     private let stackView = UIStackView()
-    private lazy var imageView = ImagePicker()
+    private lazy var imagePicker = ImagePicker()
     private let dateButton = CustomView().dateButton()
     private lazy var titleTextView = CustomView().inputTextField(title: "Title", type: .title, textViewDelegate: self)
     private lazy var descriptionTextView = CustomView().inputTextField(title: "Description", type: .description, textViewDelegate: self)
     private let emptyView = UIView()
+    private let saveButton = CustomView().projectButton(title: "Save")
 
 //    private let 
-//    weak var delegate: ?
+    weak var delegate: CreatProjectVCDelegate?
     
     init(viewModel: ProjectVM) {
         self.viewModel = viewModel
+        self.project = viewModel.project
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -42,6 +49,7 @@ class CreatProjectVC: UIViewController {
     
     // MARK:- Configures
     private func configure() {
+        imagePickerController.delegate = self
         imagePicker.delegate = self
     }
     
@@ -65,8 +73,8 @@ class CreatProjectVC: UIViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
         }
         
-        stackView.addArrangedSubview(imageView)
-        imageView.snp.makeConstraints { make in
+        stackView.addArrangedSubview(imagePicker)
+        imagePicker.snp.makeConstraints { make in
             make.height.equalTo(163 * ratio)
         }
         
@@ -78,28 +86,61 @@ class CreatProjectVC: UIViewController {
         stackView.addArrangedSubview(titleTextView)
         stackView.addArrangedSubview(descriptionTextView)
         stackView.addArrangedSubview(emptyView)
+        
+        view.addSubview(saveButton)
+        saveButton.addTarget(self, action: #selector(handleSaveButton), for: .touchUpInside)
+        saveButton.snp.makeConstraints { make in
+            make.height.equalTo(43 * ratio)
+            make.left.equalToSuperview().offset(38)
+            make.right.equalToSuperview().offset(-38)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-30)
+        }
 //        imageView.
     }
     
     // MARK:- Selectors
     @objc func handleBack() {
         popVC()
-//        dismiss(animated: true)
     }
     
-    @objc func handleImagePicker() {
-        present(imagePicker, animated: true)
+    @objc func handleSaveButton() {
+        delegate?.updateProject(project: project)
     }
+
 }
+
+//extension CreatProjectVC: CreatProjectVCDelegate {
+//    func updateProject(project: Project?) {
+//        print("\(project)")
+//    }
+//}
 
 // MARK:- UIImagePickerControllerDelegate
 extension CreatProjectVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let selectedImage = info[.originalImage] as? UIImage
+        guard let selectedImage = info[.originalImage] as? UIImage else { return }
         
-//        headerView.buttons[imageIndex].setImage(selectedImage?.withRenderingMode(.alwaysOriginal), for: .normal)
+        imagePicker.applyImage(image: selectedImage)
+        if project == nil {
+            project = Project()
+        }
+        project?.thumbNail = selectedImage
         dismiss(animated: true)
     }
+}
+
+extension CreatProjectVC: ImagePickerDelegate {
+    func updateInfo(color: UIColor) {
+        if project == nil {
+            project = Project()
+        }
+        project?.color = color
+    }
+    
+    func uploadImage() {
+        present(imagePickerController, animated: true)
+    }
+    
 }
 
 extension CreatProjectVC: UITextViewDelegate {

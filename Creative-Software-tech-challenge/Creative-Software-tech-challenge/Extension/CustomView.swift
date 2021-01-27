@@ -66,7 +66,7 @@ class CustomView {
         return view
     }
     
-    func navBar(title: String, action: Selector, target: Any) -> UIView {
+    public func navBar(title: String, action: Selector, target: Any) -> UIView {
         let view = UIView()
         let titleLabel = UILabel()
         let backButton = UIButton()
@@ -92,5 +92,15 @@ class CustomView {
         }
         
         return view
+    }
+    
+    public func projectButton(title: String) -> UIButton {
+        let button = UIButton()
+        button.setTitle(title, for: .normal)
+        button.backgroundColor = .blue
+        button.titleLabel?.textColor = .white
+        button.titleLabel?.font = .notoBold(size: 20)
+        button.layer.cornerRadius = 10
+        return button
     }
 }
