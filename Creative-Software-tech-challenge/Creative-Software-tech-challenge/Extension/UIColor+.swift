@@ -19,6 +19,8 @@ extension UIColor {
     static let gray2 = UIColor(hexString: "#E2E2E2")
     ///textField placeholdeer
     static let gray3 = UIColor(hexString: "#AFAFAF")
+    ///guideLabel
+    static let gray4 = UIColor(hexString: "#CECECE")
     
     static let orange = UIColor(hexString: "#EE9A4D")
     static let blue = UIColor(hexString: "#4B6CDD")

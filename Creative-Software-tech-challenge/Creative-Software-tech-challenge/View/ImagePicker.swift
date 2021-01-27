@@ -10,6 +10,7 @@ import UIKit
 class ImagePicker: UIView {
     private let backgroundImageButton = UIButton()
     private let blackCover = UIView()
+    private let guideLabel = UILabel()
     private let uploadImage = UIImageView()
     private lazy var colorPickerCVC = ColorPickerCVC(colors: project.posibleColors)
     private let project: Project
@@ -42,7 +43,7 @@ class ImagePicker: UIView {
             make.top.left.bottom.right.equalToSuperview()
         }
         
-        backgroundImageButton.addSubview(blackCover)
+        backgroundImageButton.imageView?.addSubview(blackCover)
         blackCover.backgroundColor = .black
         blackCover.alpha = 0.3
         blackCover.snp.makeConstraints { make in
@@ -58,6 +59,16 @@ class ImagePicker: UIView {
             make.height.equalTo(30 * ratio)
             make.centerX.equalToSuperview()
             make.top.equalTo(39 * ratio)
+        }
+        
+        addSubview(guideLabel)
+        guideLabel.text = "Upload header image or choose color"
+        guideLabel.textAlignment = .center
+        guideLabel.font = .notoReg(size: 12 * ratio)
+        guideLabel.textColor = .gray4
+        guideLabel.snp.makeConstraints { make in
+            make.top.equalTo(uploadImage.snp.bottom).offset(4)
+            make.centerX.equalToSuperview()
         }
         
         addSubview(colorPickerCVC.view)
