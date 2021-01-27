@@ -56,6 +56,7 @@ class MainVC: UIViewController {
 extension MainVC: ProjectCVCDelegate {
     func cellTapped(index: Int) {
         print("DEBUG:- tapped \(index)")
+        pushVC(CreatProjectVC(project: nil))
     }
     
 }
