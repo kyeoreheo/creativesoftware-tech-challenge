@@ -35,6 +35,14 @@ class ColorPickerCVC: UICollectionViewController {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.register(ColorCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
+    
+    public func deselectAll() {
+        collectionView.indexPathsForSelectedItems?.forEach {
+            if let cell = collectionView.cellForItem(at: $0) as? ColorCell {
+                cell.isSelected(false)
+            }
+        }
+    }
 }
 
 extension ColorPickerCVC: UICollectionViewDelegateFlowLayout {

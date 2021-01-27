@@ -8,10 +8,10 @@
 import UIKit
 
 struct Project {
-    let title: String
-    let date: Date
-    let description: String
-    let thumbNail: UIImage?
-    let color: UIColor?
-    let isOnCreationFlow: Bool
+    var title: String? = nil
+    var date: Date? = nil
+    var description: String? = nil
+    var thumbNail = UIImage(named: "placeholder")
+    var color: UIColor? = nil
+    var isOnCreationFlow: Bool = true
 }

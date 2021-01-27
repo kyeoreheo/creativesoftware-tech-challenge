@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol ImagePickerDelegate: class {
+    func uploadImage()
+    func updateInfo(color: UIColor)
+}
+
 class ImagePicker: UIView {
     private let backgroundImageButton = UIButton()
     private let blackCover = UIView()
@@ -14,6 +19,8 @@ class ImagePicker: UIView {
     private let uploadImage = UIImageView()
     private lazy var colorPickerCVC = ColorPickerCVC(colors: posibleColors)
     private let posibleColors: [UIColor] = [.picker1, .picker2, .picker3, .picker4, .picker5, .picker6]
+    
+    weak var delegate: ImagePickerDelegate?
     
     init() {
         super.init(frame: .zero)
@@ -31,7 +38,6 @@ class ImagePicker: UIView {
     
     private func configureUI() {
         addSubview(backgroundImageButton)
-        backgroundImageButton.backgroundColor = .red
         backgroundImageButton.layer.cornerRadius = 10
         backgroundImageButton.clipsToBounds = true
         backgroundImageButton.setImage(UIImage(named: "placeholder"), for: .normal)
@@ -81,8 +87,15 @@ class ImagePicker: UIView {
         }
     }
     
+    public func applyImage(image: UIImage) {
+        backgroundImageButton.setImage(image, for: .normal)
+        backgroundImageButton.backgroundColor = .white
+        colorPickerCVC.deselectAll()
+        
+    }
+    
     @objc func handleButtonTapped() {
-        print("DEBUG:- image picker button tapped")
+        delegate?.uploadImage()
     }
 }
 
@@ -90,5 +103,6 @@ extension ImagePicker: ColorPickerCVCDelegate {
     func cellTapped(index: Int) {
         backgroundImageButton.setImage(nil, for: .normal)
         backgroundImageButton.backgroundColor = posibleColors[index]
+        delegate?.updateInfo(color: posibleColors[index])
     }
 }

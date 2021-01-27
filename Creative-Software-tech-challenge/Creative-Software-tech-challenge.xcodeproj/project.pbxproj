@@ -33,6 +33,7 @@
 		311203D625C0F54F00D679D4 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311203D525C0F54F00D679D4 /* ImagePicker.swift */; };
 		311203DB25C0F5B000D679D4 /* ColorPickerCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311203DA25C0F5B000D679D4 /* ColorPickerCVC.swift */; };
 		311203E025C0F5B800D679D4 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311203DF25C0F5B800D679D4 /* ColorCell.swift */; };
+		311203FA25C1338800D679D4 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311203F925C1338800D679D4 /* UICollectionView+.swift */; };
 		B3A6E96CB85C784F56524378 /* libPods-Creative-Software-tech-challenge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C69034FB2A70F2B93A2B7A77 /* libPods-Creative-Software-tech-challenge.a */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,7 @@
 		311203D525C0F54F00D679D4 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		311203DA25C0F5B000D679D4 /* ColorPickerCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerCVC.swift; sourceTree = "<group>"; };
 		311203DF25C0F5B800D679D4 /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
+		311203F925C1338800D679D4 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
 		C69034FB2A70F2B93A2B7A77 /* libPods-Creative-Software-tech-challenge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Creative-Software-tech-challenge.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0F7290155A87BC70205EA46 /* Pods-Creative-Software-tech-challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Creative-Software-tech-challenge.release.xcconfig"; path = "Target Support Files/Pods-Creative-Software-tech-challenge/Pods-Creative-Software-tech-challenge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -219,6 +221,7 @@
 				311203C625C0E6F800D679D4 /* UIViewController+.swift */,
 				311203CB25C0E90300D679D4 /* CustomView.swift */,
 				311203D025C0E97800D679D4 /* UITextField+.swift */,
+				311203F925C1338800D679D4 /* UICollectionView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				311203DB25C0F5B000D679D4 /* ColorPickerCVC.swift in Sources */,
 				311203D125C0E97800D679D4 /* UITextField+.swift in Sources */,
 				3112037425C0D67300D679D4 /* UIColor+.swift in Sources */,
+				311203FA25C1338800D679D4 /* UICollectionView+.swift in Sources */,
 				311203AE25C0E22200D679D4 /* Projcets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
