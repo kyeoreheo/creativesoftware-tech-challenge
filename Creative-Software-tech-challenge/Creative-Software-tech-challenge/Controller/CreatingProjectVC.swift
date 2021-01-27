@@ -9,22 +9,23 @@ import UIKit
 
 class CreatProjectVC: UIViewController {
     // MARK:- Properties
-    private let project: Project
+    private let viewModel: ProjectVM
     private let imagePicker = UIImagePickerController()
     
     // MARK:- View components
+    private lazy var navBar = CustomView().navBar(title: "Create Project", action: #selector(handleBack), target: self)
     private let stackView = UIStackView()
-    private lazy var imageView = ImagePicker(project: project)
+    private lazy var imageView = ImagePicker()
     private let dateButton = CustomView().dateButton()
-    private let titleTextField = CustomView().inputTextField(title: "Title", type: .title)
-    private let descriptionTextField = CustomView().inputTextField(title: "Description", type: .description)
+    private lazy var titleTextView = CustomView().inputTextField(title: "Title", type: .title, textViewDelegate: self)
+    private lazy var descriptionTextView = CustomView().inputTextField(title: "Description", type: .description, textViewDelegate: self)
     private let emptyView = UIView()
 
 //    private let 
 //    weak var delegate: ?
     
-    init(project: Project) {
-        self.project = project
+    init(viewModel: ProjectVM) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -47,11 +48,18 @@ class CreatProjectVC: UIViewController {
     private func configureUI() {
         view.backgroundColor = .gray
         
+        view.addSubview(navBar)
+        navBar.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(34)
+            make.left.equalToSuperview().offset(16)
+            make.right.equalToSuperview().offset(-16)
+        }
+        
         view.addSubview(stackView)
         stackView.axis = .vertical
         stackView.spacing = 24
         stackView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20)
+            make.top.equalTo(navBar.snp.bottom).offset(42)
             make.left.equalToSuperview().offset(16)
             make.right.equalToSuperview().offset(-16)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
@@ -64,33 +72,19 @@ class CreatProjectVC: UIViewController {
         
         stackView.addArrangedSubview(dateButton)
         dateButton.snp.makeConstraints { make in
-//            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20) // should be changed
-//            make.left.equalToSuperview().offset(16)
-//            make.right.equalToSuperview()s.offset(-16)
             make.height.equalTo(43 * ratio)
-            
         }
         
-        stackView.addArrangedSubview(titleTextField)
-        titleTextField.snp.makeConstraints { make in
-//            make.top.equalTo(dateButton.snp.bottom).offset(24) // should be changed
-//            make.left.equalToSuperview().offset(16)
-//            make.right.equalToSuperview().offset(-16)
-        }
-        
-        stackView.addArrangedSubview(descriptionTextField)
-        descriptionTextField.snp.makeConstraints { make in
-//            make.top.equalTo(titleTextField.snp.bottom).offset(24) // should be changed
-//            make.left.equalToSuperview().offset(16)
-//            make.right.equalToSuperview().offset(-16)
-        }
+        stackView.addArrangedSubview(titleTextView)
+        stackView.addArrangedSubview(descriptionTextView)
         stackView.addArrangedSubview(emptyView)
 //        imageView.
     }
     
     // MARK:- Selectors
     @objc func handleBack() {
-        //dismiss(animated: true)
+        popVC()
+//        dismiss(animated: true)
     }
     
     @objc func handleImagePicker() {
@@ -105,5 +99,34 @@ extension CreatProjectVC: UIImagePickerControllerDelegate, UINavigationControlle
         
 //        headerView.buttons[imageIndex].setImage(selectedImage?.withRenderingMode(.alwaysOriginal), for: .normal)
         dismiss(animated: true)
+    }
+}
+
+extension CreatProjectVC: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        guard let titleTextView = titleTextView.viewWithTag(1) as? UITextView,
+              let descriptionTextView = descriptionTextView.viewWithTag(1) as? UITextView
+        else { return }
+        if textView.text == "Type here" {
+            if textView == titleTextView {
+                titleTextView.text = ""
+            } else {
+                descriptionTextView.text = ""
+            }
+        }
+
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        guard let titleTextView = titleTextView.viewWithTag(1) as? UITextView,
+              let descriptionTextView = descriptionTextView.viewWithTag(1) as? UITextView
+        else { return }
+        if textView.text == "" {
+            if textView == titleTextView {
+                titleTextView.text = "Type here"
+            } else {
+                descriptionTextView.text = "Type here"
+            }
+        }
     }
 }

@@ -9,6 +9,7 @@ import UIKit
 
 class ProjectCell: UICollectionViewCell {
     // MARK:- View components
+    public var viewModel: ProjectVM?
     private let createButton = UIImageView()
     
     // MARK:- Properties
@@ -44,7 +45,6 @@ class ProjectCell: UICollectionViewCell {
     }
     
     // MARK:- Helpers
-    
     
     // MARK:- Selectors
     

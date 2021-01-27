@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ProjectCVCDelegate: class {
-    func cellTapped(index: Int)
+    func cellTapped(index: Int, viewModel: ProjectVM)
 }
 
 class ProjectCVC: UICollectionViewController {
@@ -58,12 +58,16 @@ extension ProjectCVC: UICollectionViewDelegateFlowLayout {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? ProjectCell
         else { return UICollectionViewCell() }
-        
+        let viewModel = ProjectVM(project: nil, isOnCreationFlow: true)
+        cell.viewModel = viewModel
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let delegate = delegate else { return }
-        delegate.cellTapped(index: indexPath.row)
+        guard let delegate = delegate,
+              let cell = collectionView.cellForItem(at: indexPath) as? ProjectCell,
+              let viewModel = cell.viewModel
+        else { return }
+        delegate.cellTapped(index: indexPath.row, viewModel: viewModel)
     }
 }

@@ -184,7 +184,6 @@
 			isa = PBXGroup;
 			children = (
 				3112034925C0C12400D679D4 /* ProjectCell.swift */,
-				311203BC25C0E3AE00D679D4 /* CreatingProjectVC.swift */,
 				311203D525C0F54F00D679D4 /* ImagePicker.swift */,
 				311203DF25C0F5B800D679D4 /* ColorCell.swift */,
 			);
@@ -204,6 +203,7 @@
 			children = (
 				311202EB25C0B9CE00D679D4 /* MainVC.swift */,
 				3112036A25C0C53200D679D4 /* ProjectCVC.swift */,
+				311203BC25C0E3AE00D679D4 /* CreatingProjectVC.swift */,
 				311203DA25C0F5B000D679D4 /* ColorPickerCVC.swift */,
 			);
 			path = Controller;

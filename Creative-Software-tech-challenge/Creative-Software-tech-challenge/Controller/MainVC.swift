@@ -54,9 +54,9 @@ class MainVC: UIViewController {
 }
 
 extension MainVC: ProjectCVCDelegate {
-    func cellTapped(index: Int) {
-        print("DEBUG:- tapped \(index)")
-        pushVC(CreatProjectVC(project: Project(title: "-", date: Date(), description: "-", thumbNail: UIImage(named: "placeholder"), color: .blue, isOnCreationFlow: true)))
+    func cellTapped(index: Int, viewModel: ProjectVM) {
+        print("DEBUG:- tapped \(index), \(viewModel)")
+        pushVC(CreatProjectVC(viewModel: viewModel))
     }
     
 }

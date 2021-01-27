@@ -12,11 +12,10 @@ class ImagePicker: UIView {
     private let blackCover = UIView()
     private let guideLabel = UILabel()
     private let uploadImage = UIImageView()
-    private lazy var colorPickerCVC = ColorPickerCVC(colors: project.posibleColors)
-    private let project: Project
+    private lazy var colorPickerCVC = ColorPickerCVC(colors: posibleColors)
+    private let posibleColors: [UIColor] = [.picker1, .picker2, .picker3, .picker4, .picker5, .picker6]
     
-    init(project: Project) {
-        self.project = project
+    init() {
         super.init(frame: .zero)
         configure()
         configureUI()
@@ -33,6 +32,8 @@ class ImagePicker: UIView {
     private func configureUI() {
         addSubview(backgroundImageButton)
         backgroundImageButton.backgroundColor = .red
+        backgroundImageButton.layer.cornerRadius = 10
+        backgroundImageButton.clipsToBounds = true
         backgroundImageButton.setImage(UIImage(named: "placeholder"), for: .normal)
         backgroundImageButton.imageView?.contentMode = .scaleAspectFill
         backgroundImageButton.imageView?.snp.makeConstraints { make in
@@ -88,6 +89,6 @@ class ImagePicker: UIView {
 extension ImagePicker: ColorPickerCVCDelegate {
     func cellTapped(index: Int) {
         backgroundImageButton.setImage(nil, for: .normal)
-        backgroundImageButton.backgroundColor = project.posibleColors[index]
+        backgroundImageButton.backgroundColor = posibleColors[index]
     }
 }

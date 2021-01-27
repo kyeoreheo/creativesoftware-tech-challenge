@@ -24,20 +24,12 @@ import UIKit
 //}
 
 struct ProjectVM {
-    let title: String
-    let date: Date
-    let description: String
-    let thumbNail: UIImage?
-    let color: UIColor?
+    let project: Project?
     let isOnCreationFlow: Bool
 
-    init(project: Project, isOnCreationFlow: Bool) {
-        title = project.title
-        date = project.date
-        description = project.description
-        thumbNail = project.thumbNail
-        self.isOnCreationFlow = isOnCreationFlow//project.isOnCreationFlow
-        color = project.color
+    init(project: Project?, isOnCreationFlow: Bool) {
+        self.project = project
+        self.isOnCreationFlow = isOnCreationFlow
     }
     
     public func dateText() -> String {
