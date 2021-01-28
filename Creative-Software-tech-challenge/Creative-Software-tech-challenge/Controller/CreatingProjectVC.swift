@@ -30,7 +30,7 @@ class CreatProjectVC: UIViewController {
     private let datePicker = UIDatePicker()
     private let saveButton = CustomView().projectButton(title: "Save")
     
-    // MARK:- Lifecycle
+    // MARK:- Lifecycles
     init(viewModel: ProjectVM) {
         self.viewModel = viewModel
         self.project = viewModel.project
