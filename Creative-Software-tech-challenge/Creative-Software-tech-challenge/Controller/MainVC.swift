@@ -14,6 +14,11 @@ class MainVC: UIViewController {
     // MARK:- View components
     private let titleLabel = UILabel()
     private let projectCVC = ProjectCVC()
+    private var projects = [Project]() {
+        didSet {
+            projectCVC.projects = projects
+        }
+    }
 
     // MARK:- Lifecycles
     override func viewDidLoad() {
@@ -63,8 +68,11 @@ extension MainVC: ProjectCVCDelegate {
 
 extension MainVC: CreatProjectVCDelegate {
     func updateProject(project: Project?) {
+        guard let project = project else { return }
+        if project.color != nil || project.date != nil || project.title != nil || project.description != nil || project.thumbNail != UIImage(named: "placeholder") {
+            projects.append(project)
+        }
+        
         print("\(project)")
     }
-    
-    
 }

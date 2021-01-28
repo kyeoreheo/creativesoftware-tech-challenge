@@ -13,7 +13,11 @@ protocol ProjectCVCDelegate: class {
 
 class ProjectCVC: UICollectionViewController {
     // MARK:- Properties
-    private let projects = [Project]()
+    public var projects = [Project]() {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     private let reuseIdentifier = "projectCell"
     weak var delegate: ProjectCVCDelegate?
     
@@ -38,8 +42,7 @@ class ProjectCVC: UICollectionViewController {
     private func configure() {
         collectionView.backgroundColor = .clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.showsVerticalScrollIndicator = false
-//        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
+        collectionView.showsVerticalScrollIndicator = true
         collectionView.register(ProjectCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
 }
@@ -52,14 +55,23 @@ extension ProjectCVC: UICollectionViewDelegateFlowLayout {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return projects.count + 1
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? ProjectCell
         else { return UICollectionViewCell() }
-        let viewModel = ProjectVM(project: nil, isOnCreationFlow: true)
-        cell.viewModel = viewModel
+
+        if indexPath.row == projects.count {
+            let viewModel = ProjectVM(project: nil)
+            cell.viewModel = viewModel
+            cell.cover.isHidden = false
+        } else {
+            let viewModel = ProjectVM(project: projects[indexPath.row])
+            cell.viewModel = viewModel
+            cell.cover.isHidden = true
+        }
+
         return cell
     }
     

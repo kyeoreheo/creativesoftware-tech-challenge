@@ -11,7 +11,7 @@ struct Project {
     var title: String? = nil
     var date: Date? = nil
     var description: String? = nil
-    var thumbNail = UIImage(named: "placeholder")
+    var thumbNail: UIImage? = UIImage(named: "placeholder")
     var color: UIColor? = nil
     var isOnCreationFlow: Bool = true
 }
