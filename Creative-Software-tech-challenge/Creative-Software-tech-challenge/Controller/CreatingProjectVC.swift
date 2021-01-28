@@ -17,6 +17,7 @@ class CreatProjectVC: UIViewController {
     private var project: Project?
     private let imagePickerController = UIImagePickerController()
     
+    
     // MARK:- View components
     private lazy var navBar = CustomView().navBar(title: "Create Project", action: #selector(handleBack), target: self)
     private let stackView = UIStackView()
@@ -29,6 +30,8 @@ class CreatProjectVC: UIViewController {
     private let saveButton = CustomView().projectButton(title: "Save")
 
     weak var delegate: CreatProjectVCDelegate?
+    var buttonConstraint: NSLayoutConstraint?
+//    private var activeTextView: UITextView? = nil
     
     init(viewModel: ProjectVM) {
         self.viewModel = viewModel
@@ -48,6 +51,38 @@ class CreatProjectVC: UIViewController {
         if viewModel.project != nil {
             displayExistingProject()
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
+              let animationDuration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double,
+              let descriptionTextView = descriptionTextView.viewWithTag(1) as? UITextView
+        else { return }
+        let gap: CGFloat = 30.0
+        let saveButtonHeight: CGFloat = 43.0 * ratio
+        let bottomY = descriptionTextView.convert(descriptionTextView.bounds, to: self.view).maxY
+        let moveY = (view.frame.height - bottomY) - keyboardSize.height - (gap * 2) - saveButtonHeight
+        buttonConstraint?.constant = moveY //200 - keyboardSize.height
+//        print(200, keyboardSize.height, (view.frame.height - bottomY) - keyboardSize.height - (gap * 2) - saveButtonHeight)
+        UIView.animate(withDuration: animationDuration) {
+            self.view.layoutIfNeeded()
+        }
+        print(animationDuration)
+        self.view.frame.origin.y = moveY
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        guard let animationDuration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
+        else { return }
+        buttonConstraint?.constant = 0
+        UIView.animate(withDuration: animationDuration) {
+            self.view.layoutIfNeeded()
+        }
+      // move back the root view origin to zero
+      self.view.frame.origin.y = 0
     }
     
     // MARK:- Configures
@@ -100,6 +135,8 @@ class CreatProjectVC: UIViewController {
         stackView.addArrangedSubview(emptyView)
         
         view.addSubview(saveButton)
+        buttonConstraint = saveButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
+        buttonConstraint?.isActive = true
         saveButton.addTarget(self, action: #selector(handleSaveButton), for: .touchUpInside)
         saveButton.snp.makeConstraints { make in
             make.height.equalTo(43 * ratio)
@@ -212,6 +249,7 @@ extension CreatProjectVC: UITextViewDelegate {
                 descriptionTextView.textColor = .black2
             }
         }
+//        activeTextView = textView
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -227,5 +265,6 @@ extension CreatProjectVC: UITextViewDelegate {
                 descriptionTextView.textColor = .gray3
             }
         }
+//        activeTextView = nil
     }
 }

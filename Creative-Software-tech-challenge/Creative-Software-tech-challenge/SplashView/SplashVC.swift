@@ -72,7 +72,7 @@ class SplashVC: UIViewController {
     private func applyGlobalVariables() {
         let heightRatio: CGFloat = view.frame.height / 812.0
         ratio = heightRatio < 1 ? 1:heightRatio
-        isBigPhone = view.frame.height > 750.0
+        viewHeight = view.frame.height
         topSafeMargin = ( UIApplication.shared.windows.first{$0.isKeyWindow}?.safeAreaInsets.top ?? 0) as CGFloat
     }
     

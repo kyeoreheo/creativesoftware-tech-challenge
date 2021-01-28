@@ -8,5 +8,5 @@
 import UIKit
 
 var ratio: CGFloat = 0
-var isBigPhone = false
 var topSafeMargin: CGFloat = 0
+var viewHeight: CGFloat = 0
