@@ -185,8 +185,8 @@
 		3112031C25C0BA7600D679D4 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3112034925C0C12400D679D4 /* ProjectCell.swift */,
 				311203D525C0F54F00D679D4 /* ImagePicker.swift */,
+				3112034925C0C12400D679D4 /* ProjectCell.swift */,
 				311203DF25C0F5B800D679D4 /* ColorCell.swift */,
 			);
 			path = View;

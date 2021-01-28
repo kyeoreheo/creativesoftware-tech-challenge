@@ -15,6 +15,7 @@ enum TextFieldType {
 class CustomView {
     public func dateButton() -> UIButton {
         let button = UIButton()
+        button.backgroundColor = .white
         button.setTitle("Add date & time", for: .normal)
         button.setTitleColor(.orange, for: .normal)
         button.titleLabel?.font = .notoBold(size: 14 * ratio)
