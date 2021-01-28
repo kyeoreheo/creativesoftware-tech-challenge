@@ -12,10 +12,12 @@ protocol ColorPickerCVCDelegate: class {
 }
 
 class ColorPickerCVC: UICollectionViewController {
+    // MARK:- Properties
     private let reuseIdentifier = "colorCell"
     private let colors: [UIColor]
     public weak var delegate: ColorPickerCVCDelegate?
         
+    // MARK:- Lifecycles
     init(colors: [UIColor]) {
         self.colors = colors
         let myLayout = UICollectionViewFlowLayout()
@@ -29,6 +31,7 @@ class ColorPickerCVC: UICollectionViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK:- Configures()
     private func configure() {
         collectionView.backgroundColor = .clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -36,6 +39,7 @@ class ColorPickerCVC: UICollectionViewController {
         collectionView.register(ColorCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
     
+    // MARK:- Helpers
     public func deselectAll() {
         collectionView.indexPathsForSelectedItems?.forEach {
             if let cell = collectionView.cellForItem(at: $0) as? ColorCell {
@@ -45,6 +49,7 @@ class ColorPickerCVC: UICollectionViewController {
     }
 }
 
+// MARK:- UICollectionViewDelegate
 extension ColorPickerCVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 30 * ratio, height: 30 * ratio)

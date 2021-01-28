@@ -13,13 +13,13 @@ protocol ProjectCVCDelegate: class {
 
 class ProjectCVC: UICollectionViewController {
     // MARK:- Properties
+    private let reuseIdentifier = "projectCell"
+    public weak var delegate: ProjectCVCDelegate?
     public var projects = [Project]() {
         didSet {
             collectionView.reloadData()
         }
     }
-    private let reuseIdentifier = "projectCell"
-    weak var delegate: ProjectCVCDelegate?
     
     // MARK:- Lifecycles
     override init(collectionViewLayout layout: UICollectionViewLayout = UICollectionViewFlowLayout()) {
@@ -47,7 +47,7 @@ class ProjectCVC: UICollectionViewController {
     }
 }
 
-// MARK:- Extentions
+// MARK:- UICollectionViewDelegate
 extension ProjectCVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         

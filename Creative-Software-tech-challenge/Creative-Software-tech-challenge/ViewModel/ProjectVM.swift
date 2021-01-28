@@ -9,7 +9,6 @@ import UIKit
 
 struct ProjectVM {
     var project: Project?
-//    let isOnCreationFlow: Bool
 
     init(project: Project?) {
         self.project = project

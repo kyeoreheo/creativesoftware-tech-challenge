@@ -13,7 +13,5 @@ extension UICollectionView {
                 deselectItem(at: $0, animated: false)
                 
             }
-//        guard let selectedItems = indexPathsForSelectedItems else { return }
-//        for indexPath in selectedItems { deselectItem(at: indexPath, animated: false) }
     }
 }

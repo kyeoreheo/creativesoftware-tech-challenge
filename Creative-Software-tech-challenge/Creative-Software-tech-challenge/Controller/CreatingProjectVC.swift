@@ -15,10 +15,11 @@ class CreatProjectVC: UIViewController {
     // MARK:- Properties
     private let viewModel: ProjectVM
     private var project: Project?
-    private let imagePickerController = UIImagePickerController()
-    
-    
+    private var saveButtonY: CGFloat = 0.0
+    public weak var delegate: CreatProjectVCDelegate?
+
     // MARK:- View components
+    private let imagePickerController = UIImagePickerController()
     private lazy var navBar = CustomView().navBar(title: "Create Project", action: #selector(handleBack), target: self)
     private let stackView = UIStackView()
     private let dateButton = CustomView().dateButton()
@@ -28,11 +29,8 @@ class CreatProjectVC: UIViewController {
     private let emptyView = UIView()
     private let datePicker = UIDatePicker()
     private let saveButton = CustomView().projectButton(title: "Save")
-
-    weak var delegate: CreatProjectVCDelegate?
-    var buttonConstraint: NSLayoutConstraint?
-//    private var activeTextView: UITextView? = nil
     
+    // MARK:- Lifecycle
     init(viewModel: ProjectVM) {
         self.viewModel = viewModel
         self.project = viewModel.project
@@ -43,46 +41,18 @@ class CreatProjectVC: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK:- Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
         configureUI()
-        if viewModel.project != nil {
+        if !viewModel.isOnCreationFlow() {
             displayExistingProject()
         }
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-
+        configureKeyboardNotification()
     }
     
-    @objc func keyboardWillShow(notification: NSNotification) {
-        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
-              let animationDuration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double,
-              let descriptionTextView = descriptionTextView.viewWithTag(1) as? UITextView
-        else { return }
-        let gap: CGFloat = 30.0
-        let saveButtonHeight: CGFloat = 43.0 * ratio
-        let bottomY = descriptionTextView.convert(descriptionTextView.bounds, to: self.view).maxY
-        let moveY = (view.frame.height - bottomY) - keyboardSize.height - (gap * 2) - saveButtonHeight
-        buttonConstraint?.constant = moveY //200 - keyboardSize.height
-//        print(200, keyboardSize.height, (view.frame.height - bottomY) - keyboardSize.height - (gap * 2) - saveButtonHeight)
-        UIView.animate(withDuration: animationDuration) {
-            self.view.layoutIfNeeded()
-        }
-        print(animationDuration)
-        self.view.frame.origin.y = moveY
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification) {
-        guard let animationDuration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
-        else { return }
-        buttonConstraint?.constant = 0
-        UIView.animate(withDuration: animationDuration) {
-            self.view.layoutIfNeeded()
-        }
-      // move back the root view origin to zero
-      self.view.frame.origin.y = 0
+    override func viewDidLayoutSubviews() {
+        saveButtonY = saveButton.frame.origin.y
     }
     
     // MARK:- Configures
@@ -135,8 +105,6 @@ class CreatProjectVC: UIViewController {
         stackView.addArrangedSubview(emptyView)
         
         view.addSubview(saveButton)
-        buttonConstraint = saveButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
-        buttonConstraint?.isActive = true
         saveButton.addTarget(self, action: #selector(handleSaveButton), for: .touchUpInside)
         saveButton.snp.makeConstraints { make in
             make.height.equalTo(43 * ratio)
@@ -146,6 +114,7 @@ class CreatProjectVC: UIViewController {
         }
     }
     
+    // MARK:- Helpers
     private func displayExistingProject() {
         guard let project = viewModel.project,
               let titleTextView = titleTextView.viewWithTag(1) as? UITextView,
@@ -159,6 +128,7 @@ class CreatProjectVC: UIViewController {
             imagePicker.applyImage(image: image)
         }
         
+        stackView.isUserInteractionEnabled = false
         titleTextView.text = project.title == nil ? "Untitled" : project.title
         titleTextView.backgroundColor = .clear
         titleTextView.isUserInteractionEnabled = false
@@ -171,12 +141,16 @@ class CreatProjectVC: UIViewController {
         descriptionTextView.layer.borderWidth = 0
         descriptionTextView.textColor = .black2
         descriptionTextView.textContainerInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
-        
         dateButton.setTitle(viewModel.dateText(of: project.date), for: .normal)
-        
         saveButton.isHidden = true
     }
     
+    private func configureKeyboardNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    // MARK:- Helpers
     private func createProjectIfNeeded() {
         if project == nil {
             project = Project()
@@ -208,6 +182,33 @@ class CreatProjectVC: UIViewController {
         delegate?.updateProject(project: project)
         popVC()
     }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
+              let descriptionTextView = descriptionTextView.viewWithTag(1) as? UITextView
+        else { return }
+        let gap: CGFloat = 30.0
+        let saveButtonHeight: CGFloat = 43.0 * ratio
+        let bottomY = descriptionTextView.convert(descriptionTextView.bounds, to: self.view).maxY
+        let moveY = (view.frame.height - bottomY) - keyboardSize.height - (gap * 2) - saveButtonHeight
+        saveButton.frame.origin.y =  saveButtonY - (keyboardSize.height + moveY - view.safeAreaInsets.bottom)
+        view.frame.origin.y = moveY
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        saveButton.frame.origin.y = saveButtonY
+        view.frame.origin.y = 0
+
+        view.gestureRecognizers?.forEach {
+            view.removeGestureRecognizer($0)
+        }
+
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
 
 // MARK:- UIImagePickerControllerDelegate
@@ -235,6 +236,7 @@ extension CreatProjectVC: UIImagePickerControllerDelegate, UINavigationControlle
     }
 }
 
+// MARK:- UITextViewDelegate
 extension CreatProjectVC: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         guard let titleTextView = titleTextView.viewWithTag(1) as? UITextView,
@@ -249,7 +251,6 @@ extension CreatProjectVC: UITextViewDelegate {
                 descriptionTextView.textColor = .black2
             }
         }
-//        activeTextView = textView
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -265,6 +266,5 @@ extension CreatProjectVC: UITextViewDelegate {
                 descriptionTextView.textColor = .gray3
             }
         }
-//        activeTextView = nil
     }
 }
