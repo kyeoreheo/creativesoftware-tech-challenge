@@ -13,15 +13,18 @@ protocol ImagePickerDelegate: class {
 }
 
 class ImagePicker: UIView {
+    // MARK:- Properties
+    private let posibleColors: [UIColor] = [.picker1, .picker2, .picker3, .picker4, .picker5, .picker6]
+    public weak var delegate: ImagePickerDelegate?
+    
+    // MARK:- View components
     private let backgroundImageButton = UIButton()
     private let blackCover = UIView()
     private let guideLabel = UILabel()
     private let uploadImage = UIImageView()
     private lazy var colorPickerCVC = ColorPickerCVC(colors: posibleColors)
-    private let posibleColors: [UIColor] = [.picker1, .picker2, .picker3, .picker4, .picker5, .picker6]
-    
-    weak var delegate: ImagePickerDelegate?
-    
+
+    // MARK:- Lifecycles
     init() {
         super.init(frame: .zero)
         configure()
@@ -32,6 +35,7 @@ class ImagePicker: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK:- Configures
     private func configure() {
         colorPickerCVC.delegate = self
     }
@@ -87,6 +91,7 @@ class ImagePicker: UIView {
         }
     }
     
+    // MARK:- Helpers
     public func hideColorPicker() {
         colorPickerCVC.collectionView.isHidden = true
         uploadImage.isHidden = true
@@ -104,15 +109,15 @@ class ImagePicker: UIView {
         backgroundImageButton.backgroundColor = color
     }
     
+    // MARK:- Selectors
     @objc func handleButtonTapped() {
         delegate?.uploadImage()
     }
 }
 
+// MARK:- ColorPickerCVCDelegate
 extension ImagePicker: ColorPickerCVCDelegate {
     func cellTapped(index: Int) {
-//        backgroundImageButton.setImage(nil, for: .normal)
-//        backgroundImageButton.backgroundColor = posibleColors[index]
         applyColor(color: posibleColors[index])
         delegate?.updateInfo(color: posibleColors[index])
     }

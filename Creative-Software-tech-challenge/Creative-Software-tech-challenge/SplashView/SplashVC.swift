@@ -15,21 +15,13 @@ class SplashVC: UIViewController {
     private let button = ProjectButton(title: "Start")
     
     // MARK:- View components
-    let projectCVC = ProjectCVC()
+    private let projectCVC = ProjectCVC()
 
     // MARK:- Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         applyGlobalVariables()
         configureUI()
-        
-        DispatchQueue.main.async { [weak self] in
-            guard let strongSelf = self else { return }
-            let navigation = UINavigationController(rootViewController: MainVC())
-            navigation.modalPresentationStyle = .fullScreen
-            navigation.navigationBar.isHidden = true
-            strongSelf.present(navigation, animated: false, completion: nil)
-        }
     }
     
     // MARK:- Configures
@@ -45,7 +37,6 @@ class SplashVC: UIViewController {
             make.left.equalToSuperview().offset(16)
             make.right.equalToSuperview().offset(-16)
             make.bottom.equalTo(view.snp.centerY).offset(-16)
-            //            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(40)
         }
         
         view.addSubview(infoLabel)
@@ -76,6 +67,7 @@ class SplashVC: UIViewController {
         topSafeMargin = ( UIApplication.shared.windows.first{$0.isKeyWindow}?.safeAreaInsets.top ?? 0) as CGFloat
     }
     
+    // MARK:- Selectors
     @objc func presentMainVC() {
         DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else { return }
@@ -85,5 +77,4 @@ class SplashVC: UIViewController {
             strongSelf.present(navigation, animated: false, completion: nil)
         }
     }
-
 }

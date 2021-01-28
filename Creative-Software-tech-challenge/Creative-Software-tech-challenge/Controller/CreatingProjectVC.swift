@@ -30,7 +30,7 @@ class CreatProjectVC: UIViewController {
     private let datePicker = UIDatePicker()
     private let saveButton = CustomView().projectButton(title: "Save")
     
-    // MARK:- Lifecycles
+    // MARK:- Lifecycle
     init(viewModel: ProjectVM) {
         self.viewModel = viewModel
         self.project = viewModel.project
@@ -45,12 +45,10 @@ class CreatProjectVC: UIViewController {
         super.viewDidLoad()
         configure()
         configureUI()
-        if viewModel.project != nil {
+        if !viewModel.isOnCreationFlow() {
             displayExistingProject()
         }
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-
+        configureKeyboardNotification()
     }
     
     override func viewDidLayoutSubviews() {
@@ -65,8 +63,6 @@ class CreatProjectVC: UIViewController {
     
     private func configureUI() {
         view.backgroundColor = .gray
-        view.isUserInteractionEnabled = true
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
         
         view.addSubview(navBar)
         navBar.snp.makeConstraints { make in
@@ -132,6 +128,7 @@ class CreatProjectVC: UIViewController {
             imagePicker.applyImage(image: image)
         }
         
+        stackView.isUserInteractionEnabled = false
         titleTextView.text = project.title == nil ? "Untitled" : project.title
         titleTextView.backgroundColor = .clear
         titleTextView.isUserInteractionEnabled = false
@@ -144,11 +141,16 @@ class CreatProjectVC: UIViewController {
         descriptionTextView.layer.borderWidth = 0
         descriptionTextView.textColor = .black2
         descriptionTextView.textContainerInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
-        
         dateButton.setTitle(viewModel.dateText(of: project.date), for: .normal)
         saveButton.isHidden = true
     }
     
+    private func configureKeyboardNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    // MARK:- Helpers
     private func createProjectIfNeeded() {
         if project == nil {
             project = Project()
@@ -191,11 +193,17 @@ class CreatProjectVC: UIViewController {
         let moveY = (view.frame.height - bottomY) - keyboardSize.height - (gap * 2) - saveButtonHeight
         saveButton.frame.origin.y =  saveButtonY - (keyboardSize.height + moveY - view.safeAreaInsets.bottom)
         view.frame.origin.y = moveY
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
         saveButton.frame.origin.y = saveButtonY
         view.frame.origin.y = 0
+
+        view.gestureRecognizers?.forEach {
+            view.removeGestureRecognizer($0)
+        }
+
     }
     
     @objc func dismissKeyboard() {

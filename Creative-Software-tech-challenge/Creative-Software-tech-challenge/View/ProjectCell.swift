@@ -8,22 +8,20 @@
 import UIKit
 
 class ProjectCell: UICollectionViewCell {
-    // MARK:- View components
+    // MARK:- Properties
     public var viewModel: ProjectVM? {
         didSet {
             configure()
         }
     }
+    
+    // MARK:- View components
     private let imageView = UIImageView()
     private let titleLabel = UILabel()
     private let dateLabel = UILabel()
-    
     public let cover = UIView()
     private let createButton = UIImageView()
     
-    // MARK:- Properties
-//    weak var delegate: CreateProjectTableCellDelegate?
-
     // MARK:- Lifecycles
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -96,9 +94,4 @@ class ProjectCell: UICollectionViewCell {
             make.center.equalToSuperview()
         }
     }
-    
-    // MARK:- Helpers
-
-    // MARK:- Selectors
-    
 }

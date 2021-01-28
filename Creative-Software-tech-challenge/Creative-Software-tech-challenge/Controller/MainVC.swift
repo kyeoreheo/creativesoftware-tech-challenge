@@ -10,22 +10,21 @@ import SnapKit
 
 class MainVC: UIViewController {
     // MARK:- Properties
-    
-    // MARK:- View components
-    private let titleLabel = UILabel()
-    private let projectCVC = ProjectCVC()
     private var projects = [Project]() {
         didSet {
             projectCVC.projects = projects
         }
     }
+    
+    // MARK:- View components
+    private let titleLabel = UILabel()
+    private let projectCVC = ProjectCVC()
 
     // MARK:- Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
         configureUI()
-        // Do any additional setup after loading the view.
     }
     
     // MARK:- Configures
@@ -55,9 +54,9 @@ class MainVC: UIViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-16)
         }
     }
-
 }
 
+// MARK:- ProjectCVCDelegate
 extension MainVC: ProjectCVCDelegate {
     func cellTapped(index: Int, viewModel: ProjectVM) {
         let viewController = CreatProjectVC(viewModel: viewModel)
@@ -66,13 +65,12 @@ extension MainVC: ProjectCVCDelegate {
     }
 }
 
+// MARK:- CreatProjectVCDelegate
 extension MainVC: CreatProjectVCDelegate {
     func updateProject(project: Project?) {
         guard let project = project else { return }
         if project.color != nil || project.date != nil || project.title != nil || project.description != nil || project.thumbNail != UIImage(named: "placeholder") {
             projects.append(project)
         }
-        
-        print("\(project)")
     }
 }

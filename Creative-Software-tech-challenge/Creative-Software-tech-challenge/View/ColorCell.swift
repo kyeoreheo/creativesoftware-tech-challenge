@@ -8,8 +8,10 @@
 import UIKit
 
 class ColorCell: UICollectionViewCell {
+    // MARK:- View components
     private let checkImage = UIImageView()
     
+    // MARK:- Lifecycles
     override init(frame: CGRect) {
         super.init(frame: .zero)
         addSubview(checkImage)
@@ -31,6 +33,7 @@ class ColorCell: UICollectionViewCell {
         isSelected(false)
     }
     
+    // MARK:- Helpers
     public func setCircle(color: UIColor, size: CGFloat) {
         layer.cornerRadius = size / 2
         backgroundColor = color
