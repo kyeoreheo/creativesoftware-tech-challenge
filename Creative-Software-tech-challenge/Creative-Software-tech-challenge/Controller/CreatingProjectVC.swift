@@ -45,6 +45,9 @@ class CreatProjectVC: UIViewController {
         super.viewDidLoad()
         configure()
         configureUI()
+        if viewModel.project != nil {
+            displayExistingProject()
+        }
     }
     
     // MARK:- Configures
@@ -106,6 +109,37 @@ class CreatProjectVC: UIViewController {
         }
     }
     
+    private func displayExistingProject() {
+        guard let project = viewModel.project,
+              let titleTextView = titleTextView.viewWithTag(1) as? UITextView,
+              let descriptionTextView = descriptionTextView.viewWithTag(1) as? UITextView
+        else { return }
+        
+        if let color = project.color {
+            imagePicker.applyColor(color: color)
+            imagePicker.hideColorPicker()
+        } else if let image = project.thumbNail {
+            imagePicker.applyImage(image: image)
+        }
+        
+        titleTextView.text = project.title == nil ? "Untitled" : project.title
+        titleTextView.backgroundColor = .clear
+        titleTextView.isUserInteractionEnabled = false
+        titleTextView.layer.borderWidth = 0
+        titleTextView.textColor = .black2
+        titleTextView.textContainerInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+        descriptionTextView.text = project.description == nil ? "N/A" : project.description
+        descriptionTextView.backgroundColor = .clear
+        descriptionTextView.isUserInteractionEnabled = false
+        descriptionTextView.layer.borderWidth = 0
+        descriptionTextView.textColor = .black2
+        descriptionTextView.textContainerInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+        
+        dateButton.setTitle(viewModel.dateText(of: project.date), for: .normal)
+        
+        saveButton.isHidden = true
+    }
+    
     private func createProjectIfNeeded() {
         if project == nil {
             project = Project()
@@ -129,9 +163,10 @@ class CreatProjectVC: UIViewController {
               let descriptionTextView = descriptionTextView.viewWithTag(1) as? UITextView
         else { return }
         createProjectIfNeeded()
-        project?.title = titleTextView.text != "Type here" ? titleTextView.text : nil
-        project?.description = descriptionTextView.text != "Type here" ? descriptionTextView.text : nil
-        //project?.date = project?.date == nil ? Date() : project?.date
+        project?.title = titleTextView.text != "Type here" && titleTextView.text != ""
+                         ? titleTextView.text : nil
+        project?.description = descriptionTextView.text != "Type here" && descriptionTextView.text != ""
+                         ? descriptionTextView.text : nil
 
         delegate?.updateProject(project: project)
         popVC()
@@ -149,7 +184,6 @@ extension CreatProjectVC: ImagePickerDelegate {
     func uploadImage() {
         present(imagePickerController, animated: true)
     }
-    
 }
 
 extension CreatProjectVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -172,8 +206,10 @@ extension CreatProjectVC: UITextViewDelegate {
         if textView.text == "Type here" {
             if textView == titleTextView {
                 titleTextView.text = ""
+                titleTextView.textColor = .black2
             } else {
                 descriptionTextView.text = ""
+                descriptionTextView.textColor = .black2
             }
         }
     }
@@ -185,8 +221,10 @@ extension CreatProjectVC: UITextViewDelegate {
         if textView.text == "" {
             if textView == titleTextView {
                 titleTextView.text = "Type here"
+                titleTextView.textColor = .gray3
             } else {
                 descriptionTextView.text = "Type here"
+                descriptionTextView.textColor = .gray3
             }
         }
     }

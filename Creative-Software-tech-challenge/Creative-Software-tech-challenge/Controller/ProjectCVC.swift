@@ -78,8 +78,11 @@ extension ProjectCVC: UICollectionViewDelegateFlowLayout {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let delegate = delegate,
               let cell = collectionView.cellForItem(at: indexPath) as? ProjectCell,
-              let viewModel = cell.viewModel
+              var viewModel = cell.viewModel
         else { return }
+        if indexPath.row != projects.count {
+            viewModel.project = projects[indexPath.row]
+        }
         delegate.cellTapped(index: indexPath.row, viewModel: viewModel)
     }
 }

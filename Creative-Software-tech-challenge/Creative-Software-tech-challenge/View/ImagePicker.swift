@@ -87,11 +87,21 @@ class ImagePicker: UIView {
         }
     }
     
+    public func hideColorPicker() {
+        colorPickerCVC.collectionView.isHidden = true
+        uploadImage.isHidden = true
+        guideLabel.isHidden = true
+    }
+    
     public func applyImage(image: UIImage) {
         backgroundImageButton.setImage(image, for: .normal)
         backgroundImageButton.backgroundColor = .white
         colorPickerCVC.deselectAll()
-        
+    }
+    
+    public func applyColor(color: UIColor) {
+        backgroundImageButton.setImage(nil, for: .normal)
+        backgroundImageButton.backgroundColor = color
     }
     
     @objc func handleButtonTapped() {
@@ -101,8 +111,9 @@ class ImagePicker: UIView {
 
 extension ImagePicker: ColorPickerCVCDelegate {
     func cellTapped(index: Int) {
-        backgroundImageButton.setImage(nil, for: .normal)
-        backgroundImageButton.backgroundColor = posibleColors[index]
+//        backgroundImageButton.setImage(nil, for: .normal)
+//        backgroundImageButton.backgroundColor = posibleColors[index]
+        applyColor(color: posibleColors[index])
         delegate?.updateInfo(color: posibleColors[index])
     }
 }

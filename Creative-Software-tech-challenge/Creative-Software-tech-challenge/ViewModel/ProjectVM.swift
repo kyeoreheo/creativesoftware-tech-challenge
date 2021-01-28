@@ -8,7 +8,7 @@
 import UIKit
 
 struct ProjectVM {
-    let project: Project?
+    var project: Project?
 //    let isOnCreationFlow: Bool
 
     init(project: Project?) {
@@ -16,7 +16,7 @@ struct ProjectVM {
     }
     
     public func dateText(of date: Date?) -> String {
-        guard let date = date else { return "" }
+        guard let date = date else { return "N/A" }
         let formatter = DateFormatter()
         formatter.amSymbol = "am"
         formatter.pmSymbol = "pm"
