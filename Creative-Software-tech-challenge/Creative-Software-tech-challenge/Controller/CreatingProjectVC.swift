@@ -123,7 +123,6 @@ class CreatProjectVC: UIViewController {
         
         if let color = project.color {
             imagePicker.applyColor(color: color)
-            imagePicker.hideColorPicker()
         } else if let image = project.thumbNail {
             imagePicker.applyImage(image: image)
         }
@@ -141,6 +140,7 @@ class CreatProjectVC: UIViewController {
         descriptionTextView.layer.borderWidth = 0
         descriptionTextView.textColor = .black2
         descriptionTextView.textContainerInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+        imagePicker.hideColorPicker()
         dateButton.setTitle(viewModel.dateText(of: project.date), for: .normal)
         saveButton.isHidden = true
     }
